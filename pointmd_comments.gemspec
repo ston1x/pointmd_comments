@@ -3,12 +3,12 @@ require_relative 'lib/pointmd_comments/version'
 Gem::Specification.new do |spec|
   spec.name          = "pointmd_comments"
   spec.version       = PointmdComments::VERSION
-  spec.authors       = ["TODO: Write your name"]
-  spec.email         = ["TODO: Write your email address"]
+  spec.authors       = ["Nicolai Stoianov"]
+  spec.email         = ["stoianovnk@gmail.com"]
 
-  spec.summary       = %q{TODO: Write a short summary, because RubyGems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = "Point.md comments aggregator"
+  spec.description   = "This gem lets you aggregate comments from point.md website into a csv file."
+  spec.homepage      = "https://github.com/ston1x/pointmd-comments"
   spec.license       = "MIT"
   spec.required_ruby_version = Gem::Requirement.new(">= 2.3.0")
 
