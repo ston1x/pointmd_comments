@@ -6,6 +6,17 @@ TODO: Delete this and the text above, and describe your gem
 
 ## Installation
 
+### Prerequisites
+1. Install Chromedriver
+**MacOS**:
+
+```sh
+brew cask install chromedriver
+```
+
+**Linux**:
+To be updated!
+
 Add this line to your application's Gemfile:
 
 ```ruby
