@@ -1,8 +1,6 @@
 module PointmdComments
   module Aggregators
     class Comments
-      attr_reader :result
-
       def call(page)
         parse_comments(page)
       end
@@ -11,6 +9,12 @@ module PointmdComments
 
       def parse_comments(page)
         comments = page.css('div#simpals-comments-list').children.first.children
+        comments.map do |comment|
+          comment.css('p').children.last.text
+
+        rescue StandardError
+          next
+        end.compact
       end
     end
   end
