@@ -16,7 +16,8 @@ module PointmdComments
         validate_place
         fetch_posts
         puts "Found #{urls.count} links in the #{place} section.."
-        self
+
+        @urls
       end
 
       private
@@ -39,9 +40,14 @@ module PointmdComments
         posts_block = @page.css('.post-blocks-wrap')
         main_post_heading = posts_block.children.css('.post-big-block').children.css('h2')
 
-        @urls << main_post_heading.children.css('a').first['href']
-
+        main_post   = main_post_heading.children.css('a').first['href']
         other_posts = posts_block.children.css('.post-small-blocks-wrap')
+
+        populate_urls(main_post, other_posts)
+      end
+
+      def populate_urls(main_post, other_posts)
+        @urls << main_post
 
         @urls += other_posts.children.map do |child|
           child.css('article').css('h2').children[1]['href']
