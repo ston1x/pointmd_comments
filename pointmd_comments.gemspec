@@ -28,7 +28,10 @@ Gem::Specification.new do |spec|
 
   # Specify development dependencies
   spec.add_development_dependency 'rubocop', '1.1.0'
+  spec.add_development_dependency 'pry'
 
   # Specify runtime dependencies
-  spec.add_development_dependency 'nokogiri', '~> 1.10'
+  spec.add_dependency 'nokogiri', '~> 1.10'
+  spec.add_dependency 'watir'
+  spec.add_dependency 'watir-webdriver'
 end
