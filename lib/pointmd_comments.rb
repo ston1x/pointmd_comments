@@ -12,8 +12,9 @@ module PointmdComments
   class Error < StandardError; end
 
   def self.collect
-    posts = Aggregators::Posts.new(:news).call.urls
-    browser = ::Watir::Browser.new :chrome, headless: true
+    # TODO: Implement some parent/main/base class for orchestration
+    posts               = Aggregators::Posts.new(:news).call.urls
+    browser             = ::Watir::Browser.new :chrome, headless: true
     comments_aggregator = Aggregators::Comments.new
 
     all_comments = []
