@@ -18,8 +18,8 @@ Gem::Specification.new do |spec|
   spec.metadata['source_code_uri'] = spec.homepage
 
   spec.files         = Dir['lib/**/*.rb']
-  spec.bindir        = 'exe'
-  spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
+  spec.bindir        = 'bin'
+  spec.executables   = ['pointmd_comments']
   spec.require_paths = ['lib']
 
   # Specify development dependencies

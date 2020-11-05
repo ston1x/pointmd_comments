@@ -2,33 +2,36 @@ module PointmdComments
   module Aggregators
     class Posts
       # NOTE: This array may be populated with other website sections in the future.
-      ALLOWED_PLACES = %i[news today].freeze
-      MAIN_PAGE      = 'https://point.md/ru/'.freeze
+      ALLOWED_SOURCES = %i[news today].freeze
+      MAIN_PAGE       = 'https://point.md/ru/'.freeze
 
-      attr_reader :place, :urls
+      attr_reader :source, :urls
 
-      def initialize(place)
-        @place = place
-        @urls = []
+      def initialize(source:, path:)
+        @source = source
+        @path   = path
+        @urls   = []
       end
 
       def call
-        validate_place
+        validate_source
         fetch_posts
-        puts "Found #{urls.count} links in the #{place} section.."
+        puts "Found #{urls.count} links in the #{source} section.."
 
         @urls
       end
 
       private
 
-      def validate_place
-        raise ArgumentError, "Wrong place. Allowed places are #{ALLOWED_PLACES}" unless ALLOWED_PLACES.include?(place)
+      def validate_source
+        return if ALLOWED_SOURCES.include? source
+
+        raise ArgumentError, "Wrong source. Allowed sources are #{ALLOWED_SOURCES}"
       end
 
       def fetch_posts
         @page = download_html
-        case place
+        case source
         when :news
           fetch_news_posts
         when :today
