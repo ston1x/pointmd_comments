@@ -1,12 +1,14 @@
 module PointmdComments
   module Aggregators
     class Main
-      attr_reader :posts_aggregator, :browser, :comments_aggregator, :all_comments, :posts
+      attr_reader :posts_aggregator, :browser, :comments_aggregator, :all_comments, :posts, :source, :path
 
-      def initialize
-        @posts_aggregator    = Aggregators::Posts.new(:news)
-        @browser             = ::Watir::Browser.new :chrome, headless: true
+      def initialize(options)
+        @path                = options[:path]
+        @source              = options[:source]
+        @posts_aggregator    = Aggregators::Posts.new(source: source, path: path)
         @comments_aggregator = Aggregators::Comments.new
+        @browser             = ::Watir::Browser.new :chrome, headless: true
         @all_comments        = []
       end
 

@@ -1,5 +1,5 @@
 module PointmdComments
   module Errors
-    class NotImplemented; end
+    class NotImplemented < StandardError; end
   end
 end
