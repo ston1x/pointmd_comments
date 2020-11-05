@@ -9,6 +9,7 @@ module PointmdComments
       @options = {}
     end
 
+    # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
     def parse
       OptionParser.new do |opts|
         opts.banner = 'Usage: pointmd_comments [options]'
@@ -42,6 +43,7 @@ module PointmdComments
 
       options
     end
+    # rubocop:enable Metrics/MethodLength, Metrics/AbcSize
 
     private
 
@@ -51,6 +53,7 @@ module PointmdComments
 
     def validate_source
       return if Aggregators::Posts::ALLOWED_SOURCES.include? options[:source]
+
       raise Errors::UnknownSource
     end
   end
