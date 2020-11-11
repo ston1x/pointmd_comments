@@ -7,21 +7,17 @@ pointmd_comments is a Ruby gem designed for parsing and aggregating comments fro
 1. Install RVM
 https://rvm.io/rvm/install
 
-2. Install Chromedriver
-**MacOS**:
+2. Install chromedriver
+  **MacOS**:
 
-```sh
-brew cask install chromedriver
-```
+  ```sh
+  brew cask install chromedriver
+  ```
 
-**Ubuntu**:
-```sh
-sudo apt-get update
-```
-
-```sh
-sudo apt-get install chromium-chromedriver
-```
+  **Ubuntu**:
+  ```sh
+  sudo apt-get update && apt-get install chromium-chromedriver
+  ```
 
 3. Install the gem
 ```sh
