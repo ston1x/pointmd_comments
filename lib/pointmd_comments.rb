@@ -13,8 +13,6 @@ require 'pointmd_comments/aggregators/comments'
 require 'pointmd_comments/errors/not_implemented'
 require 'pointmd_comments/errors/unknown_source'
 
-require 'pry'
-
 module PointmdComments
   class Error < StandardError; end
 
