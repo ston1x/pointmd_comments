@@ -1,21 +1,32 @@
 # PointmdComments
-
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/pointmd_comments`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+pointmd_comments is a Ruby gem designed for parsing and aggregating comments from point.md website into a CSV file.
 
 ## Installation
 
 ### Prerequisites
-1. Install Chromedriver
+1. Install RVM
+https://rvm.io/rvm/install
+
+2. Install Chromedriver
 **MacOS**:
 
 ```sh
 brew cask install chromedriver
 ```
 
-**Linux**:
-To be updated!
+**Ubuntu**:
+```sh
+sudo apt-get update
+```
+
+```sh
+sudo apt-get install chromium-chromedriver
+```
+
+3. Install the gem
+```sh
+gem install pointmd_comments
+```
 
 Add this line to your application's Gemfile:
 
