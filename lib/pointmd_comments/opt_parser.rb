@@ -38,7 +38,7 @@ module PointmdComments
         end
       end.parse!
 
-      set_default_source if options[:source].empty? && options[:path].empty?
+      set_default_source unless options[:source] && options[:path]
       validate_source
 
       options
