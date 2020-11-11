@@ -1,10 +1,12 @@
 module PointmdComments
   module Aggregators
     class Main
-      attr_reader :posts_aggregator, :browser, :comments_aggregator, :all_comments, :posts, :source, :path
+      attr_reader :posts_aggregator, :browser, :comments_aggregator, :all_comments, :posts, :source, :output, :path
 
       def initialize(options)
-        @path                = options[:path]
+        # Currently 'path' is not supported
+        @path                = nil
+        @output              = options[:output]
         @source              = options[:source]
         @posts_aggregator    = Aggregators::Posts.new(source: source, path: path)
         @comments_aggregator = Aggregators::Comments.new
@@ -44,9 +46,19 @@ module PointmdComments
       end
 
       def write_to_csv
-        CSV.open('output.csv', 'w') do |csv|
+        file_path = output || default_output_path
+
+        CSV.open(file_path, 'w') do |csv|
           all_comments.each { |c| csv << c }
         end
+      end
+
+      def default_output_path
+        "pointmd_comments_#{current_time}.csv"
+      end
+
+      def current_time
+        Time.now.strftime('%Y%m%d_%H%M')
       end
     end
   end

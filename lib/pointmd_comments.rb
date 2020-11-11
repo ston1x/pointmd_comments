@@ -19,9 +19,7 @@ module PointmdComments
   class Error < StandardError; end
 
   def self.collect
-    # DOESN'T WORK!!
     args = ARGV.dup
-    puts args
     options = OptParser.new.parse
     Aggregators::Main.new(options).call
   rescue StandardError => e

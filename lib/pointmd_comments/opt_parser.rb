@@ -26,11 +26,11 @@ module PointmdComments
           options[:source] = s.to_sym
         end
         opts.on(
-          '-p PATH',
-          '--path=PATH',
-          'A file path to pull links from.'
-        ) do |s|
-          options[:source] = s.to_sym
+          '-o OUTPUT_PATH',
+          '--output=OUTPUT_PATH',
+          'A custom file path for the CSV.'
+        ) do |p|
+          options[:output] = p
         end
         opts.on('-V', '--version', 'Version') do
           puts PointmdComments::VERSION
