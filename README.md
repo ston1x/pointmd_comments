@@ -25,6 +25,9 @@ https://rvm.io/rvm/install
   ```
 
 ## Usage
+
+### Run from shell
+
   To aggregate comments and save them into a CSV within current directory:
   ```sh
   pointmd_comments
@@ -43,6 +46,16 @@ https://rvm.io/rvm/install
   ```sh
   pointmd_comments --help
   ```
+
+### Run from Ruby code
+```ruby
+require 'pointmd_comments'
+
+PointmdComments.collect
+
+# Or, if you want to specify an output path:
+PointmdComments.collect(output: '~/my_output.csv')
+```
 
 ## Development
 

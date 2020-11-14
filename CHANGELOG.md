@@ -1,5 +1,8 @@
 # Changelog
 
+## v0.1.4 2020-11-14
+- Add ability to call the aggregator from Ruby code
+
 ## v0.1.3 2020-11-11
 - [fix] Removed 'pry' dependency from lib/pointmd_comments.rb
 
