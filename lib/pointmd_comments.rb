@@ -16,7 +16,11 @@ require 'pointmd_comments/errors/unknown_source'
 module PointmdComments
   class Error < StandardError; end
 
-  def self.collect
+  def self.collect(options = {})
+    Aggregators::Main.new(options).call
+  end
+
+  def self.collect_from_shell
     args = ARGV.dup
     options = OptParser.new.parse
     Aggregators::Main.new(options).call

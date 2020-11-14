@@ -6,8 +6,8 @@ module PointmdComments
       def initialize(options)
         # Currently 'path' is not supported
         @path                = nil
-        @output              = options[:output]
-        @source              = options[:source]
+        @output              = options[:output] || default_output_path
+        @source              = options[:source] || Aggregators::Posts::DEFAULT_SOURCE
         @posts_aggregator    = Aggregators::Posts.new(source: source, path: path)
         @comments_aggregator = Aggregators::Comments.new
         @browser             = ::Watir::Browser.new :chrome, headless: true
@@ -46,7 +46,7 @@ module PointmdComments
       end
 
       def write_to_csv
-        file_path = output || default_output_path
+        file_path = output
 
         CSV.open(file_path, 'w') do |csv|
           all_comments.each { |c| csv << c }

@@ -3,6 +3,7 @@ module PointmdComments
     class Posts
       # NOTE: This array may be populated with other website sections in the future.
       ALLOWED_SOURCES = %i[news today].freeze
+      DEFAULT_SOURCE  = :news
       MAIN_PAGE       = 'https://point.md/ru/'.freeze
 
       attr_reader :source, :urls

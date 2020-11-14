@@ -1,4 +1,4 @@
 #!/usr/bin/env ruby
 require 'pointmd_comments'
 
-PointmdComments.collect
+PointmdComments.collect_from_shell
