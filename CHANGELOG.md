@@ -1,5 +1,8 @@
 # Changelog
 
+## v0.1.5 2020-11-14
+- [fix] Expand paths like '~/test.txt'
+
 ## v0.1.4 2020-11-14
 - Add ability to call the aggregator from Ruby code
 

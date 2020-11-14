@@ -46,7 +46,8 @@ module PointmdComments
       end
 
       def write_to_csv
-        file_path = output
+        # File#expand_path is needed to process paths like '~/test.txt' => '/Users/me/test.txt'
+        file_path = File.expand_path(output)
 
         CSV.open(file_path, 'w') do |csv|
           all_comments.each { |c| csv << c }
