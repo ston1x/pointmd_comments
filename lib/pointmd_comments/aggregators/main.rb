@@ -10,7 +10,12 @@ module PointmdComments
         @source              = options[:source] || Aggregators::Posts::DEFAULT_SOURCE
         @posts_aggregator    = Aggregators::Posts.new(source: source, path: path)
         @comments_aggregator = Aggregators::Comments.new
-        @browser             = ::Watir::Browser.new :chrome, headless: true
+
+        client = Selenium::WebDriver::Remote::Http::Default.new
+        # NOTE: #timeout= is deprecated, use #read_timeout= and #open_timeout= instead
+        client.timeout = 600 # instead of the default 60 (seconds)
+
+        @browser             = ::Watir::Browser.new :chrome, http_client: client, headless: true
         @all_comments        = []
       end
 
@@ -48,6 +53,7 @@ module PointmdComments
       def write_to_csv
         # File#expand_path is needed to process paths like '~/test.txt' => '/Users/me/test.txt'
         file_path = File.expand_path(output)
+        puts "File Path is #{file_path}"
 
         CSV.open(file_path, 'w') do |csv|
           all_comments.each { |c| csv << c }
