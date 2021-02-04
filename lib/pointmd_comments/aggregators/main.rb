@@ -1,6 +1,8 @@
 module PointmdComments
   module Aggregators
     class Main
+      CHROME_ARGS =  %w[disable-dev-shm-usage disable-software-rasterizer no-sandbox].freeze
+
       attr_reader :posts_aggregator, :browser, :comments_aggregator, :all_comments, :posts, :source, :output, :path
 
       def initialize(options)
@@ -15,7 +17,7 @@ module PointmdComments
         # NOTE: #timeout= is deprecated, use #read_timeout= and #open_timeout= instead
         client.timeout = 600 # instead of the default 60 (seconds)
 
-        @browser             = ::Watir::Browser.new :chrome, http_client: client, headless: true
+        @browser             = ::Watir::Browser.new :chrome, http_client: client, headless: true, args: CHROME_ARGS
         @all_comments        = []
       end
 
