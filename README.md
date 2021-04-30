@@ -4,8 +4,10 @@ pointmd_comments is a Ruby gem designed for parsing and aggregating comments fro
 ## Installation
 
 ### Prerequisites
-1. Install RVM
-https://rvm.io/rvm/install
+1. Install Ruby
+
+- It is better to use [rbenv](https://github.com/rbenv/rbenv#installation) or [rvm](https://rvm.io/rvm/install) for easier versioning.
+- It is recommended to use Ruby 2.7.1 or above.
 
 2. Install chromedriver
 
