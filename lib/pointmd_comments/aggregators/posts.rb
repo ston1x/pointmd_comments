@@ -11,7 +11,6 @@ module PointmdComments
       def initialize(source:, path:)
         @source = source
         @path   = path
-        @urls   = []
       end
 
       def call
@@ -41,22 +40,12 @@ module PointmdComments
       end
 
       def fetch_news_posts
-        posts_block = @page.css('.post-blocks-wrap')
-        main_post_heading = posts_block.children.css('.post-big-block').children.css('h2')
+        # NOTE: .post-blocks-wrap does not exist anymore
+        # Find <article> tags instead
+        articles = @page.css('article')
 
-        main_post   = main_post_heading.children.css('a').first['href']
-        other_posts = posts_block.children.css('.post-small-blocks-wrap')
-
-        populate_urls(main_post, other_posts)
-      end
-
-      def populate_urls(main_post, other_posts)
-        @urls << main_post
-
-        @urls += other_posts.children.map do |child|
-          child.css('article').css('h2').children[1]['href']
-        rescue StandardError
-          next
+        @urls = articles.map do |article|
+          article.css('a').attribute('href').to_s
         end.compact
       end
 

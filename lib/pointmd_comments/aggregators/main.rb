@@ -1,7 +1,7 @@
 module PointmdComments
   module Aggregators
     class Main
-      CHROME_ARGS =  %w[disable-dev-shm-usage disable-software-rasterizer no-sandbox].freeze
+      CHROME_ARGS = %w[disable-dev-shm-usage disable-software-rasterizer no-sandbox].freeze
 
       attr_reader :posts_aggregator, :browser, :comments_aggregator, :all_comments, :posts, :source, :output, :path
 
