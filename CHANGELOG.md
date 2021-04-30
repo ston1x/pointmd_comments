@@ -1,5 +1,8 @@
 # Changelog
 
+## v0.2.0 2021-04-30
+- Adjust parsing for new changes on point.md
+
 ## v0.1.5 2020-11-14
 - [fix] Expand paths like '~/test.txt'
 
