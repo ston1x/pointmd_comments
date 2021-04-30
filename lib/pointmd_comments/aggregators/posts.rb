@@ -45,7 +45,9 @@ module PointmdComments
         articles = @page.css('article')
 
         @urls = articles.map do |article|
-          article.css('a').attribute('href').to_s
+          article.css('a').last.attribute('href').to_s
+        rescue StandardError => e
+          puts e
         end.compact
       end
 
