@@ -1,5 +1,8 @@
 # Changelog
 
+## v0.2.1 2021-04-30
+- Catch errors while parsing the URL of the article & fix parsing
+
 ## v0.2.0 2021-04-30
 - Adjust parsing for new changes on point.md
 
